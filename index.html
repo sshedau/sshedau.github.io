@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sujal Hedau | Java Backend Developer</title>
+<meta name="description" content="Sujal Hedau is a Java backend developer and CSE student in Nagpur, building Spring Boot microservices, REST APIs and event-driven systems.">
+<meta property="og:title" content="Sujal Hedau | Java Backend Developer">
+<meta property="og:description" content="Spring Boot microservices, REST APIs and design-pattern-driven Java projects.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#f5f6f7">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="rail">
+  <div class="rail-top">
+    <a class="mark" href="#about">Sujal Hedau</a>
+    <button class="menu" aria-expanded="false" aria-controls="nav">Menu</button>
+  </div>
+  <nav id="nav" aria-label="Primary">
+    <ul>
+      <li><a href="#about" aria-current="true">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <p class="rail-meta">Nagpur, Maharashtra</p>
+</header>
+
+<main id="main">
+  <section id="about" class="hero">
+    <h1>Sujal Hedau</h1>
+    <p class="role">Java backend developer, B.Tech Computer Science student</p>
+    <p class="lead">I build REST APIs and microservices with Spring Boot, and I care most about how the pieces of a system talk to each other and what happens when they don’t.</p>
+    <div class="actions">
+      <a class="btn primary" href="#projects">View projects</a>
+      <a class="btn" href="#contact">Get in touch</a>
+      <a class="textlink" href="https://github.com/sshedau" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a class="textlink" href="https://www.linkedin.com/in/sujal-hedau" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+    <div class="about">
+      <h2>About</h2>
+      <p>I’m a third-year Computer Science student at Shri Ramdeobaba College of Engineering and Management in Nagpur. My focus is Java backend development: Spring Boot services, secured APIs, and splitting applications into services that can run and fail independently.</p>
+      <p>My projects are where I learn. Deploying the e-commerce backend on free-tier platforms meant tracking down deployment and caching problems myself, and the fitness backend pushed me to move slow work off the request path with RabbitMQ. I’m looking for an entry-level software development role where I can keep doing this kind of work with a team.</p>
+    </div>
+  </section>
+
+  <section id="projects" aria-labelledby="h-projects">
+    <h2 id="h-projects">Projects</h2>
+    <div class="tabs" role="tablist" aria-label="Projects">
+      <button role="tab" id="tab-0" aria-selected="true" aria-controls="p0">E-Commerce Microservices Backend</button>
+      <button role="tab" id="tab-1" aria-selected="false" tabindex="-1" aria-controls="p1">AI-Powered Fitness Microservices Backend</button>
+      <button role="tab" id="tab-2" aria-selected="false" tabindex="-1" aria-controls="p2">Delivery Management System</button>
+    </div>
+
+    <article class="project" id="p0" role="tabpanel" aria-labelledby="tab-0">
+      <h3>E-Commerce Microservices Backend</h3>
+      <p class="stack">Java, Spring Boot, Spring Cloud, Spring Security, PostgreSQL, Redis, Docker</p>
+      <p>An online-store backend split into independent services instead of one monolith, so each domain owns its code and its data.</p>
+      <div class="cols">
+        <ul>
+          <li>User, Product and Order microservices, each with its own PostgreSQL database.</li>
+          <li>API Gateway routing, with JWT authentication and role-based access control (RBAC) in Spring Security.</li>
+          <li>REST APIs with CRUD, pagination, sorting and search; OpenFeign for inter-service calls.</li>
+          <li>Redis caching, containerised with Docker, deployed on Render with Neon PostgreSQL and Upstash Redis.</li>
+        </ul>
+        <ol class="flow" aria-label="Service layout">
+          <li><strong>API Gateway</strong><span>routes requests, JWT and RBAC checks</span></li>
+          <li><strong>User service</strong><span>own PostgreSQL database</span></li>
+          <li><strong>Product service</strong><span>own PostgreSQL database, Redis cache</span></li>
+          <li><strong>Order service</strong><span>own PostgreSQL database, calls other services via OpenFeign</span></li>
+        </ol>
+      </div>
+      <p class="note">Most of the learning was in the seams: keeping databases isolated while services still need each other’s data, and debugging deployment and caching problems on free-tier hosting.</p>
+      <a class="textlink" href="https://github.com/sshedau/ecommerce-microservices-backend" target="_blank" rel="noopener noreferrer">Source on GitHub</a>
+    </article>
+
+    <article class="project" id="p1" role="tabpanel" aria-labelledby="tab-1" hidden>
+      <h3>AI-Powered Fitness Microservices Backend</h3>
+      <p class="stack">Java, Spring Boot, Spring Cloud, PostgreSQL, MongoDB, RabbitMQ, Google Gemini API</p>
+      <p>A fitness-tracking backend that turns logged activities into personalised recommendations without making the user wait on an AI call.</p>
+      <div class="cols">
+        <ul>
+          <li>User, Activity and AI Recommendation microservices.</li>
+          <li>Eureka for service discovery and Config Server for centralised configuration.</li>
+          <li>Spring Cloud API Gateway in front of the services; WebClient for inter-service communication.</li>
+          <li>REST APIs backed by PostgreSQL and MongoDB.</li>
+          <li>RabbitMQ for asynchronous processing; Google Gemini API generates the recommendations.</li>
+        </ul>
+        <ol class="flow" aria-label="Service layout">
+          <li><strong>API Gateway</strong><span>single entry point</span></li>
+          <li><strong>User and Activity services</strong><span>REST APIs on PostgreSQL and MongoDB</span></li>
+          <li><strong>RabbitMQ</strong><span>asynchronous hand-off</span></li>
+          <li><strong>AI Recommendation service</strong><span>calls the Google Gemini API</span></li>
+        </ol>
+      </div>
+      <p class="note">Recommendation generation is decoupled from the request path through a message queue, which is the part of this project I enjoyed designing most.</p>
+      <a class="textlink" href="https://github.com/sshedau/fitness-app" target="_blank" rel="noopener noreferrer">Source on GitHub</a>
+    </article>
+
+    <article class="project" id="p2" role="tabpanel" aria-labelledby="tab-2" hidden>
+      <h3>Delivery Management System</h3>
+      <p class="stack">Java, OOP, Design Patterns</p>
+      <p>A logistics dispatch simulation, built to practise object-oriented design on a problem with real moving parts.</p>
+      <div class="cols">
+        <ul>
+          <li>Dynamic delivery assignment based on distance, ratings and delivery zones.</li>
+          <li>Dispatch and delivery tracking workflows built from modular, extensible components.</li>
+          <li>Layered architecture using State, Strategy, Observer, Adapter and Builder patterns.</li>
+        </ul>
+      </div>
+      <p class="note">Each pattern is there for a reason: State for delivery lifecycle, Strategy for assignment rules, Observer for tracking updates.</p>
+      <a class="textlink" href="https://github.com/sshedau/DeliveryManagementSystem" target="_blank" rel="noopener noreferrer">Source on GitHub</a>
+    </article>
+  </section>
+
+  <section id="experience" aria-labelledby="h-exp">
+    <h2 id="h-exp">Experience</h2>
+    <h3>Research and Development Intern, Solar Defence and Aerospace Limited</h3>
+    <p class="stack">Nagpur, April to July 2023</p>
+    <ul class="plain">
+      <li>Worked in the UAV R&amp;D division under NDA, annotating, labelling and preparing UAV datasets, and supporting data processing and validation for experiments.</li>
+      <li>Helped automate basic preprocessing tasks to reduce manual effort, and organised data to support R&amp;D workflows.</li>
+    </ul>
+    <h3>Education</h3>
+    <dl class="edu">
+      <dt>B.Tech, Computer Science and Engineering</dt><dd>Shri Ramdeobaba College of Engineering and Management, Nagpur. 2023 to 2027. CGPA 9.58</dd>
+      <dt>HSC, 94.83%</dt><dd>Jeevan Vikas Vidyalaya, Umred. 2023. Tehsil Umred topper, 1st rank</dd>
+      <dt>SSC, 88.00%</dt><dd>Mount Carmel Convent School, Samudrapur. 2021</dd>
+    </dl>
+    <h3>Problem solving and certification</h3>
+    <ul class="plain">
+      <li>700+ DSA problems solved across platforms, 550+ of them on <a href="https://leetcode.com/u/Sujal_Sunil_Hedau/" target="_blank" rel="noopener noreferrer">LeetCode</a>. Also on <a href="https://www.codechef.com/users/ss_hedau" target="_blank" rel="noopener noreferrer">CodeChef</a>.</li>
+      <li>Networking Basics, Cisco.</li>
+    </ul>
+  </section>
+
+  <section id="skills" aria-labelledby="h-skills">
+    <h2 id="h-skills">Skills</h2>
+    <dl class="skills">
+      <div><dt>Languages</dt><dd>Java, C, SQL</dd></div>
+      <div><dt>Backend</dt><dd>Spring Boot, Spring Cloud (API Gateway, OpenFeign, Eureka, Config Server), Spring Security, Spring Data JPA, Hibernate, REST APIs, Microservices, WebClient, JWT, RBAC</dd></div>
+      <div><dt>Databases, messaging and DevOps</dt><dd>PostgreSQL, MySQL, Redis, RabbitMQ, Docker</dd></div>
+      <div><dt>Fundamentals</dt><dd>Data Structures and Algorithms, Object-Oriented Programming, Design Patterns, Database Management</dd></div>
+      <div><dt>Tools</dt><dd>Git, GitHub, Postman</dd></div>
+      <div><dt>Data libraries</dt><dd>NumPy, Pandas, Matplotlib, data preprocessing</dd></div>
+    </dl>
+  </section>
+
+  <section id="contact" aria-labelledby="h-contact">
+    <h2 id="h-contact">Contact</h2>
+    <p>I’m open to entry-level backend and software development roles. Email is the quickest way to reach me.</p>
+    <p><a class="big" href="mailto:sujalhedau1971@gmail.com">sujalhedau1971@gmail.com</a></p>
+    <p class="links">
+      <a href="https://www.linkedin.com/in/sujal-hedau" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/sshedau" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <span>Nagpur, Maharashtra, India</span>
+    </p>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

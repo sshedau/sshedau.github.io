@@ -1,0 +1,50 @@
+:root{--bg:#f5f6f7;--ink:#17202a;--mute:#4f5b67;--line:#d9dde1;--acc:#1b5e7a;--panel:#fff;
+--serif:'Fraunces',Georgia,serif;--sans:'Public Sans',system-ui,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:1.5rem}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.65 var(--sans)}
+a{color:var(--acc)}a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.skip{position:absolute;left:-999px}.skip:focus{left:1rem;top:1rem;background:var(--panel);padding:.5rem;z-index:9}
+.rail{padding:2rem 1.5rem}
+.rail-top{display:flex;justify-content:space-between;align-items:center}
+.mark{font:600 1.15rem var(--serif);color:var(--ink);text-decoration:none}
+.menu{font:inherit;background:none;border:1px solid var(--line);padding:.3rem .8rem;border-radius:3px;color:var(--ink);cursor:pointer}
+nav{display:none}nav.open{display:block}
+nav ul{list-style:none;margin:1rem 0 0;padding:0}
+nav a{display:block;padding:.35rem 0;color:var(--mute);text-decoration:none;border-left:2px solid transparent;padding-left:.75rem}
+nav a:hover{color:var(--ink)}nav a[aria-current]{color:var(--ink);border-color:var(--acc);font-weight:600}
+.rail-meta{display:none;color:var(--mute);font-size:.9rem}
+main{padding:0 1.5rem 4rem;max-width:46rem}
+section{padding:3rem 0;border-top:1px solid var(--line)}
+section.hero{border-top:0;padding-top:1.5rem}
+h1{font:600 clamp(2.2rem,5vw,3rem)/1.1 var(--serif);margin:0;letter-spacing:-.01em}
+h2{font:600 1.5rem var(--serif);margin:0 0 1rem}
+h3{font:600 1.05rem var(--sans);margin:1.8rem 0 .2rem}
+.role{font-size:1.15rem;color:var(--mute);margin:.5rem 0 1.2rem}.lead{font-size:1.1rem;max-width:36rem}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem 1.25rem;align-items:center;margin:1.5rem 0 2.5rem}
+.btn{padding:.55rem 1.1rem;border:1px solid var(--ink);border-radius:3px;color:var(--ink);text-decoration:none;font-weight:500}
+.btn.primary{background:var(--ink);color:var(--bg)}.btn:hover{background:var(--acc);border-color:var(--acc);color:#fff}
+.textlink{font-weight:500}.about p{max-width:38rem}
+.tabs{display:flex;flex-wrap:wrap;gap:.25rem;border-bottom:1px solid var(--line)}
+.tabs button{font:inherit;background:none;border:0;border-bottom:2px solid transparent;padding:.6rem .9rem .6rem 0;margin-right:.9rem;color:var(--mute);cursor:pointer;text-align:left}
+.tabs button[aria-selected=true]{color:var(--ink);font-weight:600;border-color:var(--acc)}
+.project{padding-top:.5rem;animation:in .2s ease-out}@keyframes in{from{opacity:.4}}
+.project h3{font:600 1.35rem var(--serif);margin-top:1.2rem}
+.stack{color:var(--mute);font-size:.92rem;margin:.1rem 0 1rem}
+.cols{display:grid;gap:1.5rem}.cols ul{margin:0;padding-left:1.1rem}.cols li{margin-bottom:.4rem}
+.flow{list-style:none;margin:0;padding:0;border-left:2px solid var(--line)}
+.flow li{padding:.5rem 0 .5rem 1rem;background:var(--panel);margin-bottom:.4rem;border:1px solid var(--line);border-left:0}
+.flow strong,.flow span{display:block}.flow span{color:var(--mute);font-size:.9rem}
+.note{border-left:3px solid var(--acc);padding-left:1rem;margin:1.5rem 0}
+.plain{padding-left:1.1rem}.edu dt{font-weight:600;margin-top:.9rem}.edu dd{margin:0;color:var(--mute)}
+.skills div{display:grid;gap:.1rem;padding:.8rem 0;border-bottom:1px solid var(--line)}
+.skills dt{font-weight:600}.skills dd{margin:0;color:var(--mute)}
+.big{font:600 1.4rem var(--serif);word-break:break-word}.links{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;color:var(--mute)}
+@media(min-width:760px){.cols{grid-template-columns:1.3fr 1fr}.skills div{grid-template-columns:12rem 1fr;gap:1.5rem}}
+@media(min-width:960px){
+body{display:grid;grid-template-columns:15rem 1fr;gap:4rem;max-width:72rem;margin:0 auto}
+.rail{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;padding:3rem 0}
+.menu{display:none}nav{display:block}.rail-meta{display:block;margin-top:auto}
+main{padding:3rem 0 5rem}}
+.project[hidden]{display:none}
+@media(max-width:959px){nav.open{display:block}}
